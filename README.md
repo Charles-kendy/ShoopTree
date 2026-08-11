@@ -31,7 +31,7 @@ A visão de contexto apresenta o relacionamento entre o cliente e a plataforma S
 
 A visão de containers apresenta a divisão da plataforma em serviços independentes e o fluxo de comunicação entre eles.
 
-## 4. Tecnologias Utilizadas
+## 4.  Tecnologias e Conceitos Utilizados
 
 - Python
 - FastAPI
@@ -100,10 +100,13 @@ A decisão adotada foi utilizar serviços independentes combinados com princípi
 
 ## 10. Estrutura do Projeto
 
+
+por este:
+
 ```text
 SHOOPTREE/
-│
 ├── architecture/
+│   ├── .gitignore.txt
 │   └── workspace.dsl
 │
 ├── docs/
@@ -114,13 +117,68 @@ SHOOPTREE/
 │   └── observer.py
 │
 ├── services/
-│   ├── product_service/
-│   │   ├── main.py
-│   │   └── schemas.py
+│   ├── payment_service/
+│   │   └── main.py
 │   │
-│   └── payment_service/
-│       └── main.py
+│   └── product_service/
+│       ├── main.py
+│       └── schemas.py
 │
-├── venv/
-│
-└── README.md
+├── .gitignore
+├── README.md
+└── requirements.txt
+```
+
+## 11. Como Executar o Projeto
+
+### 11.1 Pré-requisitos
+
+Para executar o projeto, é necessário ter instalado:
+
+- Python 3.10 ou superior;
+- Git;
+- Visual Studio Code (opcional).
+
+### 11.2 Clonar o Repositório
+
+```bash
+git clone https://github.com/Charles-kendy/ShoopTree.git
+cd ShoopTree
+```
+### 11.3 Instalar as Dependências
+
+Com o projeto aberto no terminal, instale as dependências utilizando:
+
+```bash
+pip install -r requirements.txt
+```
+### 11.4 Executar o Projeto
+
+Após a instalação das dependências, execute a prova de conceito com:
+
+```bash
+python events/event_simulation.py
+```
+
+### 11.5 Resultado da Execução
+
+Ao executar a prova de conceito, o sistema simula o fluxo de uma compra e a comunicação entre os serviços.
+
+Durante a execução, é possível acompanhar:
+
+- geração do evento de compra;
+- recebimento do evento pelo serviço de pagamentos;
+- processamento do pagamento;
+- recebimento do evento pelo serviço de notificações;
+- geração da notificação ao cliente.
+
+Esse fluxo demonstra, de forma simplificada, como os serviços podem trabalhar de maneira independente utilizando comunicação orientada a eventos.
+
+
+## 12. Conclusão
+
+O projeto ShopTree apresenta uma proposta de modernização arquitetural baseada na separação de responsabilidades e na comunicação orientada a eventos.
+
+A prova de conceito permitiu demonstrar, de forma prática, como os serviços de produtos, pagamentos e notificações podem trabalhar de maneira independente, reduzindo o acoplamento entre os componentes.
+
+A solução também facilita futuras evoluções da plataforma, permitindo que novos serviços sejam adicionados sem exigir grandes alterações nos componentes existentes.
